@@ -1,0 +1,56 @@
+<html>
+	<head>
+  		<title>Custom Box Dimensions</title>
+  		<LINK REL="StyleSheet" HREF="boxStyle.css">
+	</head>
+	<body>
+	<div id="title">
+	<p>Enter Item dimensions:</p>
+	</div>
+	<div><p>Length:</p> <input id="length" type="number" step="any"></div>	<!-- Item length input box -->
+	<div><p>Width:</p> <input id="width" type="number" step="any"></div>		<!-- Item width input box -->
+	<div><p>Height:</p> <input id="height" type="number" step="any"></div>	<!-- Item height input box -->
+	
+	<div id="boxDiv"><button id="go">Get Box Dimensions</button></div>				<!-- GUI Button -->
+	
+	<div id="result"></div>
+	<script>
+	function getBox() {			//Box dimension calculating function start
+
+	    var l = document.getElementById('length').value;	//Item length stored in variable l
+	    var w = document.getElementById('width').value;		//Item width stored in variable w
+		var h = document.getElementById('height').value;	//Item height stored in variable h
+	    
+		var newL = +l + 4;		//Item length + 4 inches for foam padding = Box length
+		var newW = +w + 4;		//Item width + 4 inches for foam padding = Box width
+		var newH = +h + 4;		//Item height + 4 inches  for foam padding = Box height
+		var flatB = (newL + newH * 2) + '" by ' + (newW + newH * 2) + '"';	//Box size before assembly
+		
+		var capL = newL + .5;	//Box length + .5 inches for lip
+		var capW = newW + 1;	//Box width + .5 inches for lip and .5 inches for flaps
+		var capH = newH / 2;	//Box height equals half the boxes height
+		var flatC = (capL + capH * 2) + '" by ' + (capW + capH * 2) + '"';	//Cap size before assembly
+		
+		var result =			//Box dimension output data string start
+			'<div id="boxDims">' +
+			'<br>' + 'Box Length: ' + newL + '"' +
+			'<br>' + 'Box Width: ' + newW + '"' +
+			'<br>' + 'Box Height: ' + newH + '"' +
+			'<br>' + 'Flat Box Dimensions: ' + flatB +
+			'</div>' +
+			'<div id="capDims">' +
+			'<br>' + 'Box Cap Length: ' + capL + '"' +
+			'<br>' + 'Box Cap Width: ' + capW + '"' +
+			'<br>' + 'Box Cap Height: ' + capH + '"' +
+			'<br>' + 'Flat Cap Dimensions: ' + flatC +
+			'</div>';			//Box dimension output data string end
+			
+	   		 document.getElementById('result').innerHTML = result;		//Display output data
+
+	}		//Box dimension calculating function end
+	document.getElementById('go').addEventListener('click', getBox);	//Connects button to getBox function
+	</script>
+	
+	</body>
+	
+</html>
