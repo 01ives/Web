@@ -17,37 +17,38 @@
 	<script>
 	function getBox() {			//Box dimension calculating function start
 
-	    var l = document.getElementById('length').value;	//Item length stored in variable l
-	    var w = document.getElementById('width').value;		//Item width stored in variable w
-		var h = document.getElementById('height').value;	//Item height stored in variable h
+	var l = document.getElementById('length').value;	//Item length stored in variable l
+	var w = document.getElementById('width').value;		//Item width stored in variable w
+	var h = document.getElementById('height').value;	//Item height stored in variable h
 	    
-		var newL = +l + 4;		//Item length + 4 inches for foam padding = Box length
-		var newW = +w + 4;		//Item width + 4 inches for foam padding = Box width
-		var newH = +h + 4;		//Item height + 4 inches  for foam padding = Box height
-		var flatB = (newL + newH * 2) + '" by ' + (newW + newH * 2) + '"';	//Box size before assembly
+	var newL = +l + 4;		//Item length + 4 inches for foam padding = Box length
+	var newW = +w + 4;		//Item width + 4 inches for foam padding = Box width
+	var newH = +h + 4;		//Item height + 4 inches  for foam padding = Box height
+	var flatB = (newL + newH * 2) + '" by ' + (newW + newH * 2) + '"';	//Box size before assembly
 		
-		var capL = newL + .5;	//Box length + .5 inches for lip
-		var capW = newW + 1;	//Box width + .5 inches for lip and .5 inches for flaps
-		var capH = newH / 2;	//Box height equals half the boxes height
-		var flatC = (capL + capH * 2) + '" by ' + (capW + capH * 2) + '"';	//Cap size before assembly
+	var capL = newL + .5;	//Box length + .5 inches for lip
+	var capW = newW + 1;	//Box width + .5 inches for lip and .5 inches for flaps
+	var capH = newH / 2;	//Box height equals half the boxes height
+	var flatC = (capL + capH * 2) + '" by ' + (capW + capH * 2) + '"';	//Cap size before assembly
 		
-		var result =			//Box dimension output data string start
-			'<div id="boxDims">' +
-			'<br>' + 'Box Length: ' + newL + '"' +
-			'<br>' + 'Box Width: ' + newW + '"' +
-			'<br>' + 'Box Height: ' + newH + '"' +
-			'<br>' + 'Flat Box Dimensions: ' + flatB +
-			'</div>' +
-			'<div id="capDims">' +
-			'<br>' + 'Box Cap Length: ' + capL + '"' +
-			'<br>' + 'Box Cap Width: ' + capW + '"' +
-			'<br>' + 'Box Cap Height: ' + capH + '"' +
-			'<br>' + 'Flat Cap Dimensions: ' + flatC +
-			'</div>';			//Box dimension output data string end
+	var result =			//Box dimension output data string start
+		'<div id="boxDims">' +
+		'<br>' + 'Box Length: ' + newL + '"' +
+		'<br>' + 'Box Width: ' + newW + '"' +
+		'<br>' + 'Box Height: ' + newH + '"' +
+		'<br>' + 'Flat Box Dimensions: ' + flatB +
+		'</div>' +
+		'<div id="capDims">' +
+		'<br>' + 'Box Cap Length: ' + capL + '"' +
+		'<br>' + 'Box Cap Width: ' + capW + '"' +
+		'<br>' + 'Box Cap Height: ' + capH + '"' +
+		'<br>' + 'Flat Cap Dimensions: ' + flatC +
+		'</div>';			//Box dimension output data string end
 			
-	   		 document.getElementById('result').innerHTML = result;		//Display output data
+   		 document.getElementById('result').innerHTML = result;		//Display output data
 
 	}		//Box dimension calculating function end
+	
 	document.getElementById('go').addEventListener('click', getBox);	//Connects button to getBox function
 	</script>
 	
